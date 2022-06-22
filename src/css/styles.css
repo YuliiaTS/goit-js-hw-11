@@ -10,6 +10,17 @@
     margin: 0;
   }
 
+  p {
+    margin: 0;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
   button {
     cursor: pointer;
   }
@@ -19,6 +30,8 @@
     display: flex;
     justify-content: center;
     padding: 10px 0px;
+    position: fixed;
+    width: 100%;
   }
 
   .search-form__input {
@@ -57,7 +70,8 @@
     display: block;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 50px;
+    margin-top: 30px;
+    margin-bottom: 20px;
     min-width: 150px;
     padding: 10px;
     font-family: inherit;
@@ -73,4 +87,30 @@
 .load-more:hover,
 .load-more:focus {
     background-color: rgb(100, 100, 190);;
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -30px;
+    padding: 70px 10px 0;
+  }
+
+  .photo-card {
+    width: calc(100% / 4 - 30px);
+    margin-bottom: 10px;
+    margin-left: 30px;
+    box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%), 0px 2px 1px rgb(0 0 0 / 20%);
+  }
+
+  .info {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    text-align: center;
+    font-size: small;
+  }
+
+  .is-hidden {
+    display: none;
   }
