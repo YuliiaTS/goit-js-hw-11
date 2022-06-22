@@ -23,6 +23,7 @@ async function onSearch(e) {
   imagesApiService.qwery = inputEl.value;
   imagesApiService.resetPage();
   if (imagesApiService.qwery !== '') {
+    galeryEl.innerHTML = '';
     try {
       const resolve = await imagesApiService.fetchImages();
       const imgArray = resolve.data.hits;
@@ -89,16 +90,16 @@ function ImgCardRender(arrey) {
     <a class="photo-card__link" href="${largeImageURL}"><img src="${webformatURL}" alt="${tags}" loading="lazy" /></a>
         <div class="info">
             <p class="info-item">
-            <b>Likes ${likes}</b>
+            <b>Likes <span>${likes}</span></b>
             </p>
             <p class="info-item">
-            <b>Views ${views}</b>
+            <b>Views <span>${views}</span></b>
             </p>
             <p class="info-item">
-            <b>Comments ${comments}</b>
+            <b>Comments <span>${comments}</span></b>
             </p>
             <p class="info-item">
-            <b>Downloads ${downloads}</b>
+            <b>Downloads <span>${downloads}</span></b>
             </p>
         </div>
     </div>`
