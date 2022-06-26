@@ -24,6 +24,7 @@ async function onSearch(e) {
   imagesApiService.resetPage();
   if (imagesApiService.qwery !== '') {
     galeryEl.innerHTML = '';
+    loadMoreBtn.classList.add('is-hidden');
     try {
       const resolve = await imagesApiService.fetchImages();
       const imgArray = resolve.data.hits;
@@ -56,6 +57,11 @@ async function onLoadMoreBtnClick() {
     const imgsArray = response.data.hits;
     console.log(imgsArray);
     if (imgsArray.length === 0) {
+      Notify.failure("We're sorry, but you've reached the end of search results.");
+      loadMoreBtn.classList.add('is-hidden');
+    } else if (imgsArray.length < 40) {
+      galeryEl.insertAdjacentHTML('beforeend', ImgCardRender(imgsArray));
+      smoothScroll();
       Notify.failure("We're sorry, but you've reached the end of search results.");
       loadMoreBtn.classList.add('is-hidden');
     } else {
